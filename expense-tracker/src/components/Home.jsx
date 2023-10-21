@@ -29,6 +29,7 @@ function Home() {
             })
             fetch(`https://ex-spend-backend.vercel.app/transactions/${uuid}`).then(data => data.json()).then(res => {
                 console.log(res)
+                res.reverse()
                 setTransactionData(res)
             })
 
