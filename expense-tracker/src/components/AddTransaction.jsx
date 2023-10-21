@@ -21,7 +21,7 @@ function AddTransaction({ data }) {
                 'remark': `${expendRemarkRef.current.value}`,
                 'transaction_type': -1
             }
-            fetch(`http://localhost:8000/transaction/${uuid}`, {
+            fetch(`https://ex-spend-backend.vercel.app/transaction/${uuid}`, {
                 method: 'POST',
                 headers: {
                     Accept: 'application/json',
@@ -47,7 +47,7 @@ function AddTransaction({ data }) {
 
                 console.log(newData)
 
-                fetch(`http://localhost:8000/updateAccount/${uuid}`, {
+                fetch(`https://ex-spend-backend.vercel.app/updateAccount/${uuid}`, {
                     method: 'PUT',
                     headers: {
                         Accept: 'application/json',
@@ -83,7 +83,7 @@ function AddTransaction({ data }) {
                 'remark': `${AddRemarkRef.current.value}`,
                 'transaction_type': 1
             }
-            fetch(`http://localhost:8000/transaction/${uuid}`, {
+            fetch(`https://ex-spend-backend.vercel.app/transaction/${uuid}`, {
                 method: 'POST',
                 headers: {
                     Accept: 'application/json',
@@ -109,7 +109,7 @@ function AddTransaction({ data }) {
 
                 console.log(newData)
 
-                fetch(`http://localhost:8000/updateAccount/${uuid}`, {
+                fetch(`https://ex-spend-backend.vercel.app/updateAccount/${uuid}`, {
                     method: 'PUT',
                     headers: {
                         Accept: 'application/json',

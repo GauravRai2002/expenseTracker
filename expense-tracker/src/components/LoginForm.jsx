@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { auth } from '../firebase'
 
@@ -17,6 +17,12 @@ function LoginForm() {
 
     }
   }
+  const navigation = useNavigate()
+  useEffect(()=>{
+    if(localStorage.getItem('uuid')){
+      navigation('/')
+    }
+  })
   return (
     <div className='w-screen my-16 flex items-center justify-evenly'>
       <form className='flex flex-col gap-8 w-full h-fit md:w-2/3  mx-auto border-2 border-teal-600 rounded-lg py-8 px-2 my-6'>

@@ -24,10 +24,10 @@ function Home() {
             navigate('/login')
         }
         try {
-            fetch(`http://localhost:8000/balance/${uuid}`).then(data => data.json()).then(res => {
+            fetch(`https://ex-spend-backend.vercel.app/balance/${uuid}`).then(data => data.json()).then(res => {
                 setBalanceData(res)
             })
-            fetch(`http://localhost:8000/transactions/${uuid}`).then(data => data.json()).then(res => {
+            fetch(`https://ex-spend-backend.vercel.app/transactions/${uuid}`).then(data => data.json()).then(res => {
                 console.log(res)
                 setTransactionData(res)
             })

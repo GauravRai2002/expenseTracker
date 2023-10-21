@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { auth } from '../firebase'
 import { useNavigate } from 'react-router-dom'
@@ -28,7 +28,7 @@ function SignupForm() {
         'balance_history': BalanceHistory,
         'remarks_history':remarkHistory
       }
-      fetch('http://localhost:8000/account/new', {
+      fetch('https://ex-spend-backend.vercel.app/account/new', {
         method: 'POST',
         headers: {
           Accept: 'application/json',
@@ -44,6 +44,12 @@ function SignupForm() {
       console.log(err)
     }
   }
+  const navigation = useNavigate()
+  useEffect(()=>{
+    if(localStorage.getItem('uuid')){
+      navigation('/')
+    }
+  })
 
 
 
