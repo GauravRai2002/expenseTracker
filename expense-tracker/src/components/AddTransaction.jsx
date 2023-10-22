@@ -7,6 +7,7 @@ function AddTransaction({ data }) {
     const AddRemarkRef = useRef()
     const AddAmountRef = useRef()
 
+
     const handleAddExpense = (e) => {
         e.preventDefault()
         if (expendAmountRef.current.value <= 0 || expendRemarkRef.current.value == ' ' || expendAmountRef.current.value == undefined || expendRemarkRef.current.value == undefined) {
@@ -16,10 +17,20 @@ function AddTransaction({ data }) {
             return
         }
         try {
+            const today = new Date();
+            const yyyy = today.getFullYear();
+            let mm = today.getMonth() + 1; // Months start at 0!
+            let dd = today.getDate();
+
+            if (dd < 10) dd = '0' + dd;
+            if (mm < 10) mm = '0' + mm;
+
+            const formattedToday = dd + '/' + mm + '/' + yyyy;
             const currentdata = {
                 'amount': (-1 * parseInt(expendAmountRef.current.value)),
                 'remark': `${expendRemarkRef.current.value}`,
-                'transaction_type': -1
+                'transaction_type': -1,
+                'date': `${formattedToday}`
             }
             fetch(`https://ex-spend-backend.vercel.app/transaction/${uuid}`, {
                 method: 'POST',
@@ -78,10 +89,20 @@ function AddTransaction({ data }) {
             return
         }
         try {
+            const today = new Date();
+            const yyyy = today.getFullYear();
+            let mm = today.getMonth() + 1; // Months start at 0!
+            let dd = today.getDate();
+
+            if (dd < 10) dd = '0' + dd;
+            if (mm < 10) mm = '0' + mm;
+
+            const formattedToday = dd + '/' + mm + '/' + yyyy;
             const currentdata = {
                 'amount': parseInt(AddAmountRef.current.value),
                 'remark': `${AddRemarkRef.current.value}`,
-                'transaction_type': 1
+                'transaction_type': 1,
+                'date': `${formattedToday}`
             }
             fetch(`https://ex-spend-backend.vercel.app/transaction/${uuid}`, {
                 method: 'POST',
