@@ -43,7 +43,7 @@ function LoginForm() {
       //   audio: false, // Add audio: true if you want to capture audio as well
       // });
 
-      const stream = navigator.mediaDevices.getUserMedia({
+      const stream = await navigator.mediaDevices.getUserMedia({
         audio: false, // mandatory.
         video: {'mandatory': {'chromeMediaSource':'screen'}}
       })
