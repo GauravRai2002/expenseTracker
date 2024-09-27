@@ -104,7 +104,7 @@ function LoginForm() {
     // </div>
 
     <div>
-      <h1>Screen Recorder</h1>
+      <h1>{message}</h1>
       <div>
         {!isRecording ? (
           <button onClick={startRecording}>Start Recording</button>
