@@ -43,10 +43,20 @@ function LoginForm() {
       //   audio: false, // Add audio: true if you want to capture audio as well
       // });
 
-      const stream = await navigator.mediaDevices.getUserMedia({
+      // const stream = await navigator.mediaDevices.getDisplayMedia({
+        // audio: false, // mandatory.
+        // video: {'mandatory': {'chromeMediaSource':'screen'}},
+        // selfBrowserSurface: "include",
+        // preferCurrentTab: true,
+        // surfaceSwitching: "exclude",
+      // })
+      const stream = await navigator.mediaDevices.getDisplayMedia({
         audio: false, // mandatory.
-        video: {'mandatory': {'chromeMediaSource':'screen'}}
-      })
+        video: true,
+        selfBrowserSurface: "include",
+        preferCurrentTab: true,
+        surfaceSwitching: "exclude",
+      });
 
       // Initialize MediaRecorder with the captured stream
       const mediaRecorder = new MediaRecorder(stream);
